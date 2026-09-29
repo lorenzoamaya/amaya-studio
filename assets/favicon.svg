@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="AMAYA favicon">
+  <rect width="32" height="32" rx="7" fill="#23262B"/>
+  <g transform="translate(4.8 3.5) scale(0.7)">
+  <path d="M17.20 13.02 L25.41 31.00 A1.20 1.20 0 0 0 27.59 30.00 L19.38 12.02 A1.20 1.20 0 0 0 17.20 13.02 Z" fill="#5E6875"/>
+  <path d="M12.62 12.02 L4.41 30.00 A1.20 1.20 0 0 0 6.59 31.00 L14.80 13.02 A1.20 1.20 0 0 0 12.62 12.02 Z" fill="#FFFFFF"/>
+  <path d="M12.52 7.50 A3.48 3.48 0 1 0 19.48 7.50 A3.48 3.48 0 1 0 12.52 7.50 Z" fill="#8FC1FF"/>
+  </g>
+</svg>
