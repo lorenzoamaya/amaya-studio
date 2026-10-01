@@ -113,6 +113,8 @@ h1{font-family:var(--ui);font-weight:500;font-size:clamp(34px,3.1vw,46px);line-h
 .cta svg{width:16px;height:16px;stroke:#FFFFFF;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .cta:hover{background:#2E63B8}
 .cue{margin:14px 0 0;font-size:13px;color:var(--muted)}
+.price{margin:18px 0 0;font-size:18px;line-height:1.5;color:var(--ink);max-width:42ch}
+.price b{font-weight:500}
 
 /* readout: the mechanism, ticking as the section is drawn */
 .wlabel{font-family:var(--brand);font-size:9.5px;letter-spacing:.3em;color:var(--muted);margin:0 0 14px}
@@ -176,9 +178,9 @@ h2{font-family:var(--ui);font-weight:500;font-size:clamp(28px,2.6vw,36px);line-h
 .foot-note{font-size:13px;color:var(--muted);margin:28px 0 0;max-width:70ch}
 
 /* early proof: one line under the hero */
-.proof1{border-top:1px solid var(--line);padding:30px 0}
-.proof1 p{margin:0;font-size:15.5px;color:var(--text2);max-width:92ch}
-.proof1 b{font-weight:500;color:var(--ink)}
+
+
+
 
 /* solution: three rows, the step on the left, one viewer frame on the right */
 .step{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:center;padding:44px 0;border-top:1px solid var(--line)}
@@ -319,7 +321,7 @@ form .cta[disabled]{opacity:.6;cursor:progress}
     <h1>Custom subassemblies in <span class="hl">minutes</span>, not hours.</h1>
     <p class="sub">Describe the piece in plain words, let AMAYA build it, review it, and get the .pkt ready for Civil 3D.</p>
     <div><a class="cta" href="#reserve">Reserve my seat</a></div>
-    <p class="cue">Private beta. Founders' conditions for the first 20 seats.</p>
+    <p class="cue">Private beta in November. 10 seats at the founders' price.</p>
   </div>
 
   <div class="viewer" aria-label="A sentence in, a subassembly out">
@@ -391,10 +393,6 @@ form .cta[disabled]{opacity:.6;cursor:progress}
 
 <main id="main">
 
-  <!-- PROOF (early, one line) -->
-  <section class="proof1" aria-label="Who builds it">
-    <div class="wrap"><p><b>Built by a civil engineer who understands the pains of modeling corridors in Civil 3D.</b> Timed on his own pieces: a Creager spillway, 4 hours in Subassembly Composer, 8 minutes with AMAYA Studio.</p></div>
-  </section>
 
   <!-- PROBLEM -->
   <section class="band" aria-labelledby="h-problem">
@@ -402,7 +400,7 @@ form .cta[disabled]{opacity:.6;cursor:progress}
       <div><p class="kicker">The problem</p><h2 id="h-problem">Flowcharts, <span class="nw">hand-typed</span> codes, and corridors that fail.</h2></div>
       <ul class="lines">
         <li>The catalogue covers ideal cases. Real projects need custom subassemblies, usually several.</li>
-        <li>Each one costs hours in Subassembly Composer, and the errors that break the corridor are documented nowhere.</li>
+        <li>Each one costs hours in Subassembly Composer: parameters, a flowchart, codes typed by hand, and corridor surfaces that will not generate. The rules that break the file are documented nowhere.</li>
         <li>You know the section. Let AMAYA build it and invest your time in what actually matters.</li>
       </ul>
     </div>
@@ -527,7 +525,7 @@ form .cta[disabled]{opacity:.6;cursor:progress}
       <div class="qa">
         <div><h3>Does it replace the engineer?</h3><p>No. You author the section and keep every parameter, target and code in front of you. AMAYA builds it and makes sure Civil 3D can load it.</p></div>
         <div><h3>Is it a chatbot inside Civil 3D?</h3><p>No. It is a desktop app that writes the .pkt. The output is the file, not the conversation.</p></div>
-        <div><h3>What if my piece is unusual?</h3><p>Ask for the change in words. AMAYA proposes again and checks again before writing the file.</p></div>
+        <div><h3>What if AMAYA cannot build my section?</h3><p>The beta is supervised. If a section does not come out right, send it to me and I fix what breaks. Every failing piece becomes a check inside AMAYA.</p></div>
         <div><h3>Do I need to know coding?</h3><p>No. You only need your engineering background. AMAYA takes care of everything else.</p></div>
       </div>
     </div>
@@ -537,9 +535,10 @@ form .cta[disabled]{opacity:.6;cursor:progress}
   <section class="band" id="reserve" aria-labelledby="h-reserve">
     <div class="wrap final">
       <div>
-        <p class="kicker">Early access</p>
-        <h2 id="h-reserve">Your next subassembly, from a sentence.</h2>
-        <p class="cue">The first 20 seats get founders' conditions, locked for 12 months, in exchange for a timed case with your name.</p>
+        <p class="kicker">Waitlist · Private beta, November</p>
+        <h2 id="h-reserve">10 seats, with my supervision.</h2>
+        <p class="price"><b>Founders' price: 39 €/month</b> (39 $ in the US), locked for 12 months. After the beta: 59 €/month.</p>
+        <p class="cue">In exchange for a timed case with your name. The .pkt files are yours and work without AMAYA.</p>
       </div>
       <div id="formbox">
         <form id="seat" novalidate>
@@ -551,12 +550,13 @@ form .cta[disabled]{opacity:.6;cursor:progress}
             <label><input type="checkbox" name="pieces" value="Slopes, benches and daylight"><span>Slopes, benches and daylight</span></label>
             <label><input type="checkbox" name="pieces" value="Mining and dams"><span>Mining and dams</span></label>
             <label><input type="checkbox" name="pieces" value="Other"><span>Other</span></label></div></fieldset>
+          <div class="fld"><label for="f-piece">The piece you would build first <span class="opt">(optional)</span></label><input id="f-piece" name="piece" type="text" autocomplete="off" maxlength="200" placeholder="e.g. a trapezoidal ditch that daylights to the surface"></div>
           <fieldset class="fld"><legend>How do you build custom subassemblies today?</legend><div class="chips">
             <label><input type="radio" name="method" value="Subassembly Composer"><span>Subassembly Composer</span></label>
             <label><input type="radio" name="method" value=".NET or code"><span>.NET or code</span></label>
             <label><input type="radio" name="method" value="I adapt catalogue pieces"><span>I adapt catalogue pieces</span></label>
             <label><input type="radio" name="method" value="Someone else builds them"><span>Someone else builds them</span></label>
-            <label><input type="radio" name="method" value="I don't create custom subassemblies yet"><span>I don't create custom subassemblies yet</span></label></div></fieldset>
+            <label><input type="radio" name="method" value="I'm not creating custom subassemblies yet"><span>I'm not creating custom subassemblies yet</span></label></div></fieldset>
           <fieldset class="fld"><legend>Civil 3D version</legend><div class="chips">
             <label><input type="radio" name="version" value="2024"><span>2024</span></label>
             <label><input type="radio" name="version" value="2025"><span>2025</span></label>
@@ -596,7 +596,7 @@ const LINKEDIN_URL  = "https://www.linkedin.com/in/lorenzo-amaya-garc%C3%ADa-b94
   function vals(n){ return [].map.call(form.querySelectorAll('[name="'+n+'"]:checked'),function(e){ return e.value; }); }
   function done(){
     var box=document.getElementById('formbox');
-    box.innerHTML='<div class="done" tabindex="-1"><p>You are on the list. Lorenzo writes personally when your seat opens.</p></div>';
+    box.innerHTML='<div class="done" tabindex="-1"><p>You are on the list. I will write to you personally when your seat opens.</p></div>';
     box.firstChild.focus();
   }
   form.addEventListener('submit',function(ev){
@@ -604,7 +604,9 @@ const LINKEDIN_URL  = "https://www.linkedin.com/in/lorenzo-amaya-garc%C3%ADa-b94
     msg.className='msg'; msg.textContent='';
     if(val('website')){ done(); return; }                     /* honeypot: a bot filled the hidden field */
     if(!email.checkValidity()){ msg.className='msg err'; msg.textContent='Enter a valid email to reserve your seat.'; email.focus(); return; }
-    var data={email:val('email'),pieces:vals('pieces').join(', '),method:val('method'),version:val('version')};
+    var pieces=vals('pieces').join(', '), piece=val('piece');
+    if(piece){ pieces=(pieces?pieces+' | ':'')+'First piece: '+piece; }
+    var data={email:val('email'),pieces:pieces,method:val('method'),version:val('version')};
     function fail(){
       btn.disabled=false; btn.removeAttribute('aria-busy');
       msg.className='msg err'; msg.textContent='The seat was not reserved. Check your connection and press Reserve my seat again.';
