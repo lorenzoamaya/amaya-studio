@@ -230,7 +230,13 @@ h2{font-family:var(--ui);font-weight:500;font-size:clamp(28px,2.6vw,36px);line-h
 .usercase[hidden]{display:none}
 /* arch dam video: 4:5, loads only on click */
 .vidnote{margin:10px 0 0;font-size:14px;line-height:1.45;color:var(--text2);max-width:30ch}
-.player{position:relative;width:min(100%,360px);aspect-ratio:4/5;border:1px solid var(--line-s);border-radius:12px;overflow:hidden;background:#1E2534}
+/* screenshot (1160×1000) and video (4:5) side by side: column widths ∝ aspect ratios → equal heights */
+.vidpair{display:grid;grid-template-columns:minmax(0,1.16fr) minmax(0,.8fr);gap:16px;align-items:start}
+.shot{margin:0;border:1px solid var(--line-s);border-radius:12px;overflow:hidden}
+.shot img{display:none;width:100%;height:auto}
+:root:not([data-theme]) .shot-oscuro,:root[data-theme="oscuro"] .shot-oscuro,:root[data-theme="marino"] .shot-marino,:root[data-theme="claro"] .shot-claro{display:block}
+@media (max-width:860px){ .vidpair{grid-template-columns:1fr} .vidpair .player{width:min(100%,360px)} }
+.player{position:relative;width:100%;aspect-ratio:4/5;border:1px solid var(--line-s);border-radius:12px;overflow:hidden;background:#1E2534}
 .player video{display:block;width:100%;height:100%;object-fit:cover}
 .playbtn{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);display:inline-flex;align-items:center;gap:8px;padding:10px 18px 10px 14px;border:0;border-radius:999px;background:var(--send);color:#fff;font:500 14px var(--ui);cursor:pointer;box-shadow:0 8px 24px var(--send-glow);transition:transform .15s}
 .playbtn:hover{transform:translateX(-50%) scale(1.04)}
@@ -520,11 +526,18 @@ form .cta[disabled]{opacity:.6;cursor:progress}
         </div>
         <div class="case vidcase">
           <div><p class="cat">Advanced subassemblies</p><h3>Arch dam</h3><p class="vidnote">A day of work by hand. 3&nbsp;prompts with AMAYA Studio, then straight onto the terrain in Civil&nbsp;3D.</p></div>
+          <div class="vidpair">
+          <figure class="shot">
+            <img class="shot-oscuro" src="assets/archdam-studio-oscuro.jpg" width="1160" height="1000" loading="lazy" alt="AMAYA Studio with the arch dam section: parameters on the left, the section from crest to foundation slab in the centre">
+            <img class="shot-marino" src="assets/archdam-studio-marino.jpg" width="1160" height="1000" loading="lazy" alt="">
+            <img class="shot-claro" src="assets/archdam-studio-claro.jpg" width="1160" height="1000" loading="lazy" alt="">
+          </figure>
           <div class="player">
             <video id="archVideo" preload="none" playsinline poster="assets/archdam-poster.jpg" width="1080" height="1350" aria-label="Arch dam built in 3 prompts with AMAYA Studio, 30-second edited demo">
               <source src="assets/archdam.mp4" type="video/mp4">
             </video>
             <button class="playbtn" id="archPlay" type="button" aria-label="Play the arch dam video (30 s)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7l9 5-9 5z"/></svg><span>Watch · 30 s</span></button>
+          </div>
           </div>
         </div>
         <!-- First user case: fill in and remove `hidden` (see web/README.md) -->
