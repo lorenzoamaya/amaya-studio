@@ -269,6 +269,8 @@ input[type=email]:focus-visible,input[type=text]:focus-visible{outline:2px solid
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 form .cta{justify-self:start;min-width:200px}
 form .cta[disabled]{opacity:.6;cursor:progress}
+.sendrow{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px}
+.sendrow .free{font-size:14px;color:var(--text2)}
 .msg{margin:0;font-size:15px;min-height:1.5em}
 .msg.err{color:var(--ink)}
 .done{padding:28px;border:1px solid var(--line-s);border-radius:12px;background:var(--void-c)}
@@ -340,7 +342,7 @@ form .cta[disabled]{opacity:.6;cursor:progress}
     <h1>Custom subassemblies in <span class="hl">minutes</span>, not hours.</h1>
     <p class="sub">Describe the piece in plain words, let AMAYA build it, review it, and get the .pkt ready for Civil 3D.</p>
     <div><a class="cta" href="#reserve">Reserve my seat</a></div>
-    <p class="cue">Private beta in November. 10 seats at the founders' price.</p>
+    <p class="cue">Free to register. Private beta in November, 10 seats at the founders' price.</p>
   </div>
 
   <div class="viewer" aria-label="A sentence in, a subassembly out">
@@ -601,7 +603,7 @@ form .cta[disabled]{opacity:.6;cursor:progress}
             <label><input type="radio" name="version" value="2026"><span>2026</span></label>
             <label><input type="radio" name="version" value="2027"><span>2027</span></label></div></fieldset>
           <div class="hp" aria-hidden="true"><label for="f-web">Website</label><input id="f-web" name="website" type="text" tabindex="-1" autocomplete="off"></div>
-          <button class="cta" type="submit" id="send">Reserve my seat</button>
+          <div class="sendrow"><button class="cta" type="submit" id="send">Reserve my seat</button><span class="free">Free to register. No card.</span></div>
           <p class="msg" id="msg" role="status" aria-live="polite"></p>
         </form>
       </div>
